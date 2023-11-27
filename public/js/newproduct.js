@@ -46,6 +46,7 @@ function createLinha() {
     inputSeries.setAttribute('name', 'Séries_' + contador);
     inputSeries.setAttribute('id', 'series_' + contador);
 
+
     // Create the div that will contain the input element
     var divSeries = document.createElement('div');
     divSeries.setAttribute('class', 'form-group col-auto');
@@ -65,8 +66,9 @@ function createLinha() {
     var inputCarga = document.createElement('input');
     inputCarga.setAttribute('type', 'number');
     inputCarga.setAttribute('class', 'form-control');
-    inputCarga.setAttribute('name', 'Carga_' + contador);
+    inputCarga.setAttribute('name', 'carga_' + contador);
     inputCarga.setAttribute('id', 'carga_' + contador);
+    inputCarga.setAttribute('placeholder', 'KG');
 
     // Create the div that will contain the input element
     var divCarga = document.createElement('div');
@@ -105,3 +107,28 @@ function createLinha() {
 
     return linha;
 }
+
+
+// form.addEventListener("submit", ()=> {
+//     const ficha
+//     fetch("/api/register", {
+//         method: "POST",
+//         body: JSON.stringify(ficha),
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     }).then(res => res.json())
+//     .then(data => {
+//         if(data => {
+//             if (data.status == "error") {
+//                 success.style.display = "none"
+//                 error.style. display = "block"
+//                 error.innerText = data.error
+//             } else {
+//                 error.style.display = "none"
+//                 success.style. display = "block"
+//                 success.innerText = data.success
+//             }
+//         })
+//     })
+// })

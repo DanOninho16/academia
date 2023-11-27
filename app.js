@@ -35,7 +35,22 @@ app.get('/', (req, res)=> {
     });
 });
 
+app.get('/cadastro', (req,res)=>{
+    let sql = 'SELECT idexercicio, nomeexercicio FROM ficha';
+    conexao.query(sql, function(err, results){
+        if(err) throw err;
+        res.render('cadastro', {
+            title: "Início",
+            favicon: "favicon.png",
+            css: ['style-form.css'],
+            exercicios:results,
+        });
+        
+    });
+})
 
+
+// API
 
 app.get('/api/exercises', (req,res)=> {
     conexao.query('SELECT * FROM ficha', (error, results)=> {
