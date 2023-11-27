@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.fora {
+    height: 93vh;
+    background-color: #08A57C;
+    padding: 3vh;
+    position: absolute;
+}
+
+.divdentro{
+    padding: 2vh;
+    height: 85vh;
+    border-radius: 20px;
+    background-color: #F2F6F2;
+    position: relative;
+    overflow:auto;
+}
