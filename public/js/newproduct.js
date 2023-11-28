@@ -109,6 +109,51 @@ function createLinha() {
 }
 
 
+
+formtreino.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const exercicios = [];
+
+  for (let i = 1; i <= contador; i++) {
+    const diaTreino = document.getElementById(`data-exercicio`);
+    const exercicio = document.getElementById(`exercicio_${i}`);
+    const series = document.getElementById(`series_${i}`);
+    const repeticoes = document.getElementById(`repeticoes_${i}`);
+    const carga = document.getElementById(`carga_${i}`);
+
+    if (exercicio.value && series.value && repeticoes.value) {
+        const dataFicha = {
+            dia_treino: diaTreino.value,
+            exercicio_id: exercicio.value,
+            series: parseInt(series.value),
+            repeticoes: parseInt(repeticoes.value),
+            carga: parseInt(carga.value),
+        };
+        exercicios.push(dataFicha);
+    }
+    console.log(exercicios); 
+  }
+  fetch('api/cadastro', {
+    method: 'POST',
+    body: JSON.stringify(exercicios),
+    headers:{
+        'Content-Type': 'application/json'
+    }
+  }).then(res => res.json())
+  .then(data => {
+    if(data.status == 'error') {
+        success.style.display = 'none'
+        error.style.display = 'block'
+        error.innerText = data.error
+    } else {
+        error.style.display = 'none'
+        success.style.display = 'block'
+        success.innerText = data.success
+    }
+  })
+})
+
+
 // form.addEventListener("submit", ()=> {
 //     const ficha
 //     fetch("/api/register", {

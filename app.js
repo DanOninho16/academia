@@ -57,6 +57,26 @@ app.get('/api/exercises', (req,res)=> {
         if(error) throw error;
         res.json(results);
     })
-})
+});
+
+app.post('/api/cadastro', async (req,res) => {
+    const {exercicios_id, series, repeticoes, carga, dia_treino} = req.body;
+    if (!series || !repeticoes || !exercicios_id || !dia_treino) return res.json({status:'error', error:'Preencha todos os dados.'});
+    else {
+        conexao.query('SELECT * FROM registro WHERE datatreino = ?', [dia_treino], async (err, result) => {
+            if (err) throw err;
+            if (result[0]) return res.json({status: 'error', error: 'Treino ja registrado.'})
+            else {
+                conexao.query('INSERT INTO registro SET ?' + 'INSERT INTO exercicios SET ?', {datatreino: dia_treino, ficha_idexercicio: exercicios_id,},
+                (error, results) => {
+                    if (error) throw error;
+                    return res.json({status: 'success', success: 'Registrado.'})
+                }
+                )
+            }
+        })
+    }
+});
+
 
 app.listen(3000)
