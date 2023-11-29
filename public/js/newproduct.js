@@ -150,8 +150,8 @@ formtreino.addEventListener('submit', (event) => {
     }
 }
 const resultado = exercicios.reduce(reduzirArray, {});
-console.log(resultado); 
-  fetch('api/cadastro', {
+console.log(resultado);
+  fetch('http://localhost:3000/api/cadastro', {
     method: 'POST',
     body: JSON.stringify(resultado),
     headers:{

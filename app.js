@@ -21,6 +21,8 @@ var conexao = mysql.createConnection({
     database: 'academia'
 });
 
+conexao.connect();
+
 app.get('/', (req, res)=> {
     let sql = 'SELECT idexercicio, nomeexercicio FROM ficha';
     conexao.query(sql, function(err, results){
@@ -36,7 +38,7 @@ app.get('/', (req, res)=> {
 });
 
 app.get('/cadastro', (req,res)=>{
-    let sql = 'SELECT idexercicio, nomeexercicio FROM ficha';
+    let sql = 'SELECT idexercicio, nomeexercicio FROM ficha ORDER BY tipoexercicio';
     conexao.query(sql, function(err, results){
         if(err) throw err;
         res.render('cadastro', {
@@ -53,29 +55,29 @@ app.get('/cadastro', (req,res)=>{
 // API
 
 app.get('/api/exercises', (req,res)=> {
-    conexao.query('SELECT * FROM ficha', (error, results)=> {
+    conexao.query('SELECT * FROM ficha ORDER BY tipoexercicio', (error, results)=> {
         if(error) throw error;
         res.json(results);
     })
 });
 
 app.post('/api/cadastro', async (req,res) => {
-    const {exercicios_id, series, repeticoes, carga, dia_treino} = req.body;
-    if (!series || !repeticoes || !exercicios_id || !dia_treino) return res.json({status:'error', error:'Preencha todos os dados.'});
-    else {
-        conexao.query('SELECT * FROM registro WHERE datatreino = ?', [dia_treino], async (err, result) => {
-            if (err) throw err;
-            if (result[0]) return res.json({status: 'error', error: 'Treino ja registrado.'})
-            else {
-                conexao.query('INSERT INTO registro SET ?' + 'INSERT INTO exercicios SET ?', {datatreino: dia_treino, ficha_idexercicio: exercicios_id,},
-                (error, results) => {
-                    if (error) throw error;
-                    return res.json({status: 'success', success: 'Registrado.'})
-                }
-                )
-            }
-        })
-    }
+    const {dia_treino, exercicios} = req.body;
+    // if (!series || !repeticoes || !exercicios_id || !dia_treino) return res.json({status:'error', error:'Preencha todos os dados.'});
+    // else {
+    //     conexao.query('SELECT * FROM registro WHERE datatreino = ?', [dia_treino], async (err, result) => {
+    //         if (err) throw err;
+    //         if (result[0]) return res.json({status: 'error', error: 'Treino ja registrado.'})
+    //         else {
+    //             conexao.query('INSERT INTO registro SET ?' + 'INSERT INTO exercicios SET ?', {datatreino: dia_treino, ficha_idexercicio: exercicios_id,},
+    //             (error, results) => {
+    //                 if (error) throw error;
+    //                 return res.json({status: 'success', success: 'Registrado.'})
+    //             }
+    //             )
+    //         }
+    //     })
+    // }
 });
 
 
