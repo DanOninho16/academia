@@ -79,4 +79,4 @@ app.post('/api/cadastro', async (req,res) => {
 });
 
 
-app.listen(3000)
+app.listen(3000);

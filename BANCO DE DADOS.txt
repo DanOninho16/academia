@@ -1,0 +1,95 @@
+CREATE DATABASE IF NOT EXISTS academia;
+
+CREATE TABLE IF NOT EXISTS registro (
+  id INT NOT NULL PRIMARY KEY auto_increment,
+  datatreino datetime
+);
+
+CREATE TABLE IF NOT EXISTS ficha (
+  idexercicio INT NOT NULL PRIMARY KEY  auto_increment,
+  nomeexercicio VARCHAR(255)
+  tipoexercicio varchar(255)
+);
+
+CREATE TABLE IF NOT EXISTS exercicios (
+id int not null primary key  auto_increment,
+idregistro int,
+ficha_idexercicio int,
+series int,
+carga int,
+repeticoes int,
+FOREIGN KEY (idregistro) REFERENCES registro(id),
+FOREIGN KEY (ficha_idexercicio) REFERENCES ficha(idexercicio)
+);
+
+INSERT INTO `ficha` (`nomeexercicio`, `tipoexercicio`)
+VALUES
+('Agachamento', 'Pernas'),
+('Afundo', 'Pernas'),
+('Leg press', 'Pernas'),
+('Leg extension', 'Pernas'),
+('Leg curl', 'Pernas'),
+('Stiff', 'Pernas'),
+('Cadeira extensora', 'Pernas'),
+('Cadeira flexora', 'Pernas'),
+('Rosca direta', 'Bíceps'),
+('Rosca martelo', 'Bíceps'),
+('Rosca concentrada', 'Bíceps'),
+('Rosca scott', 'Bíceps'),
+('Barra fixa', 'Bíceps'),
+('Tríceps testa', 'Tríceps'),
+('Tríceps francês', 'Tríceps'),
+('Tríceps corda', 'Tríceps'),
+('Supino reto', 'Peito'),
+('Supino inclinado', 'Peito'),
+('Supino declinado', 'Peito'),
+('Cruzada', 'Peito'),
+('Remada curvada', 'Costas'),
+('Remada aberta', 'Costas'),
+('Remada invertida', 'Costas'),
+('Barra fixa pronada', 'Costas'),
+('Barra fixa supinada', 'Costas'),
+('Levantamento terra', 'Costas e pernas'),
+('Ombro lateral', 'Ombros'),
+('Ombro frontal', 'Ombros'),
+('Ombro posterior', 'Ombros'),
+('Remada alta', 'Ombros'),
+('Remada baixa', 'Ombros'),
+('Abdominal reto', 'Abdômen'),
+('Abdominal oblíquo', 'Abdômen'),
+('Abdominal infra', 'Abdômen'),
+('Abdominal supra', 'Abdômen'),
+('Prancha', 'Abdômen'),
+('Leg press unilateral', 'Pernas'),
+('Leg extension unilateral', 'Pernas'),
+('Leg curl unilateral', 'Pernas'),
+('Cadeira extensora unilateral', 'Pernas'),
+('Cadeira flexora unilateral', 'Pernas'),
+('Rosca direta unilateral', 'Bíceps'),
+('Rosca martelo unilateral', 'Bíceps'),
+('Rosca concentrada unilateral', 'Bíceps'),
+('Rosca scott unilateral', 'Bíceps'),
+('Barra fixa unilateral', 'Bíceps'),
+('Tríceps testa unilateral', 'Tríceps'),
+('Tríceps francês unilateral', 'Tríceps'),
+('Tríceps corda unilateral', 'Tríceps'),
+('Supino reto unilateral', 'Peito'),
+('Supino inclinado unilateral', 'Peito'),
+('Supino declinado unilateral', 'Peito'),
+('Cruzada unilateral', 'Peito'),
+('Remada curvada unilateral', 'Costas'),
+('Remada aberta unilateral', 'Costas'),
+('Remada invertida unilateral', 'Costas'),
+('Barra fixa pronada unilateral', 'Costas'),
+('Barra fixa supinada unilateral', 'Costas'),
+('Levantamento terra unilateral', 'Costas e pernas'),
+('Ombro lateral unilateral', 'Ombros'),
+('Ombro frontal unilateral', 'Ombros'),
+('Ombro posterior unilateral', 'Ombros'),
+('Remada alta unilateral', 'Ombros'),
+('Remada baixa unilateral', 'Ombros'),
+('Abdominal reto unilateral', 'Abdômen'),
+('Abdominal oblíquo unilateral', 'Abdômen'),
+('Abdominal infra unilateral', 'Abdômen'),
+('Abdominal supra unilateral', 'Abdômen'),
+('Prancha unilateral', 'Abdômen');
