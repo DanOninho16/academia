@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.amarelo{
+    margin-top: 100px;
+}
+
+.card{
+    margin-top: 40px;
+    padding: 5px;
+    min-height: 4vh;
+}
+
+.textos{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.card a{
+    margin-top: 5px;
+}

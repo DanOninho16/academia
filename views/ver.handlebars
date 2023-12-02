@@ -1,0 +1,16 @@
+<div class="container-fluid amarelo">
+    <h1>Lista{{iddia}}</h1>
+    <div class="row">
+          {{#each exercicios}}
+            <div class="col-4">
+                <div class="card">
+                        <p class="texto-exercicio">{{nomeexercicio}}</p>
+                          <p class="textos">Séries: {{series}}</p> 
+                          <p class="textos">Repetições: {{repeticoes}}</p>
+                          <p class="textos">Carga: {{carga}} </p>
+                </div>
+            </div>
+          {{/each}}
+    </div>
+        <a href="/historico" class="btn azu btn-dark btn-lg">Voltar</a>
+</div>

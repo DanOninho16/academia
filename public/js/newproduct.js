@@ -151,7 +151,7 @@ formtreino.addEventListener('submit', (event) => {
 }
 const resultado = exercicios.reduce(reduzirArray, {});
 console.log(resultado); 
-  fetch('api/cadastro', {
+  fetch('/api/cadastro', {
     method: 'POST',
     body: JSON.stringify(resultado),
     headers:{
@@ -164,9 +164,8 @@ console.log(resultado);
         error.style.display = 'block'
         error.innerText = data.error
     } else {
-        error.style.display = 'none'
-        success.style.display = 'block'
-        success.innerText = data.success
+        alert(data.success);
+        window.location.href = '/';
     }
   })
 })

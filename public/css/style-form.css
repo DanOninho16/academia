@@ -2,14 +2,22 @@
     padding: 0;
     margin: 0;
 }
+.nav-link,
+.navbar-brand {
+    color: #F2F6F2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .fora {
-    height: 93vh;
-    background-color: #08A57C;
+    height: 100%;
+    background-color: #0C1717;
     padding: 3vh;
     position: absolute;
 }
 
 .divdentro{
+    margin-top: 4vh;
     padding: 2vh;
     height: 85vh;
     border-radius: 20px;

@@ -1,0 +1,14 @@
+<div class="container amarelo">
+    <div class="row">
+        {{#each ficha}}
+        <div class="col-12 col-sm-3 col-md-2 col-lg-2">
+            <div class="card">
+                <div class="textos">
+                    <p>{{formatarData datatreino}}</p>
+                </div>
+                <a href="/ver/{{iddia}}" class="btn btn-dark">Ver</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
