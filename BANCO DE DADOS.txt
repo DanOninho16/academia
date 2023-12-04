@@ -6,9 +6,9 @@ CREATE TABLE IF NOT EXISTS registro (
 );
 
 CREATE TABLE IF NOT EXISTS ficha (
-  idexercicio INT NOT NULL PRIMARY KEY  auto_increment,
-  nomeexercicio VARCHAR(255)
-  tipoexercicio varchar(255)
+  idexercicio INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nomeexercicio VARCHAR(45),
+  tipoexercicio VARCHAR(45)
 );
 
 CREATE TABLE IF NOT EXISTS exercicios (
